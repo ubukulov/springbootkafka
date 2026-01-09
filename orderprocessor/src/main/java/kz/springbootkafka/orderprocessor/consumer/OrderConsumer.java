@@ -15,7 +15,7 @@ import kz.springbootkafka.common.dto.OrderEventDTO;
 public class OrderConsumer {
 
     private final OrderRepository repository;
-    private final KafkaTemplate<String, Object> kafkaTemplate;
+    private final KafkaTemplate<String, OrderEventDTO> kafkaTemplate;
 
     @KafkaListener(
             topics = "order.created",

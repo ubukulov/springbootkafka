@@ -1,30 +1,31 @@
 package kz.springbootkafka.orderprocessor.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import org.springframework.data.annotation.Id;
 
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "orders")
 @Data
-@Getter
-@Setter
 public class Order {
 
-    @jakarta.persistence.Id
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "order_id", nullable = false)
     private String orderId;
 
+    @Column(nullable = false)
     private String product;
+
+    @Column(nullable = false)
     private int quantity;
+
+    @Column(nullable = false)
     private BigDecimal price;
 
+    @Column(nullable = false)
     private String status;
 }

@@ -22,6 +22,7 @@
         <dependency>
             <groupId>kz.springbootkafka</groupId>
             <artifactId>common</artifactId>
+            <version>1.0.0</version>
         </dependency>
 
         <!-- Spring Web -->

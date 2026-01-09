@@ -4,7 +4,8 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/orders
     username: order_user
-    password: order_pass
+    password: 123456
+    driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
@@ -13,10 +14,14 @@ spring:
 
   kafka:
     bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
     consumer:
       group-id: order-processor-group
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
-        spring.json.trusted.packages: kz.springbootkafka.common.dto
+        spring.json.trusted.packages: "kz.springbootkafka.common.dto"
+        spring.json.value.default.type: "kz.springbootkafka.common.dto.OrderEventDTO"
