@@ -1,0 +1,4 @@
+kz/springbootkafka/orderprocessor/consumer/OrderConsumer.class
+kz/springbootkafka/orderprocessor/entity/Order.class
+kz/springbootkafka/orderprocessor/repository/OrderRepository.class
+kz/springbootkafka/orderprocessor/OrderProcessorApplication.class
